@@ -13,6 +13,10 @@ Added
 
 * Shared content in the streams now contain the name and link to the profile of the sharer.
 
+* Django-Silk is now available for developers to turn on for their instance.
+
+  To turn on, set the environment variable ``SOCIALHOME_SILKY=True``.
+
 Changed
 .......
 
