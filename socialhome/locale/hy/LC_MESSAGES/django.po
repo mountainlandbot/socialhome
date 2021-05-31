@@ -592,8 +592,8 @@ msgstr ""
 
 #: socialhome/static/dist/vue/js/app.js:67
 #, python-format
-msgid "%d new post available"
-msgid_plural "%d new posts available"
+msgid "%s new post available"
+msgid_plural "%s new posts available"
 msgstr[0] ""
 msgstr[1] ""
 
