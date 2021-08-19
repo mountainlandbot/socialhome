@@ -126,7 +126,8 @@ def fetch_oembed_preview(content, urls):
         if not oembed:
             continue
         # Keep width and height for some sites embedded videos
-        if "youtube.com" not in oembed and "vimeo.com" not in oembed and "kickstarter.com" not in oembed:
+        video_sites = ["youtube.com", "youtu.be", "vimeo.com", "kickstarter.com"]
+        if not any(site in oembed for site in video_sites):
             # Keep height if width = 100%
             if not re.search(r'\s+width="100%"', oembed):
                 oembed = re.sub(r'\s+height="[0-9]+"', " ", oembed)
