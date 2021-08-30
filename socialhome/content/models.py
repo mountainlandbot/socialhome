@@ -250,6 +250,10 @@ class Content(models.Model):
         """Human readable timestamp ie '2 hours ago'."""
         return arrow.get(self.modified).humanize(locale=get_language())
 
+    @property
+    def timestamp_epoch(self):
+        return self.modified.strftime('%s')
+
     @cached_property
     def root(self):
         """Get root content if a reply or share."""
