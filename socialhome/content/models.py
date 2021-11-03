@@ -15,6 +15,7 @@ from django.template.loader import render_to_string
 from django.urls import reverse
 from django.utils.functional import cached_property
 from django.utils.text import slugify
+from django.utils.timezone import get_current_timezone
 from django.utils.translation import get_language, ugettext_lazy as _
 from enumfields import EnumIntegerField
 from federation.entities.activitypub.enums import ActivityType
@@ -256,7 +257,7 @@ class Content(models.Model):
 
     @property
     def timestamp_epoch(self):
-        return self.modified.strftime('%s')
+        return self.modified.astimezone(get_current_timezone()).strftime('%s')
 
     @cached_property
     def root(self):
@@ -270,7 +271,7 @@ class Content(models.Model):
 
     @property
     def timestamp(self):
-        return arrow.get(self.modified).format()
+        return arrow.get(self.modified.astimezone(get_current_timezone())).format()
 
     @property
     def url(self):
