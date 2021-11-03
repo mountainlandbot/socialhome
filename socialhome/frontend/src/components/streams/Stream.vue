@@ -155,6 +155,9 @@ export default Vue.component("Stream", {
             this.currentTime = Date.now()
         }, 10000)
     },
+    beforeDestroy() {
+        clearInterval(this.nowTimer)
+    },
     methods: {
         onNewContentClick() {
             this.$store.dispatch("stream/newContentAck").then(

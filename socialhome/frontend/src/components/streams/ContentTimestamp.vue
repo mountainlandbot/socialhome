@@ -51,7 +51,6 @@ export default {
                 period = "year"
                 timeDiff = Math.round(rawTimeDiff / this.year)
             }
-            // console.log(`now: ${this.now.currentTime}, stamp: ${timeStamp.getTime()} diff: ${timeDiff}`)
             const humanizedTimestamp = this.rtf.format(-timeDiff, period)
             return this.content.edited
                 ? `${humanizedTimestamp} (${gettext("edited")})`
